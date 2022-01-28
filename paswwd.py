@@ -8,9 +8,8 @@ from time import sleep
 
 
 def menu():
-  print('Bienvenido al menu de contraseñas que desea realizar?')
-  print('1 --> Generar Contraseña')
-  print('2 --> Buscar contraseña')
+  print('1 --> Generate password')
+  print('2 --> Search password')
   print('3 --> Salir')
   option = input('Opción: ')
   if option == '1':
@@ -48,7 +47,7 @@ def generate():
     password += chr(random.randint(33,126)) 
 
   #Save password in a csv file
-  with open('/home/m4rs0r/Proyectos/Python/Passwords/.passwords.csv', 'a') as f_object:
+  with open('passwords.csv', 'a') as f_object:
     save = [base64.b64encode(password.encode("utf-32")), service]
     # You will get a object of DictWriter
     writer_object = csv.writer(f_object)
@@ -70,7 +69,7 @@ def generate():
 
 
 def search():
-  with open('/home/m4rs0r/Proyectos/Python/Passwords/.passwords.csv', 'r') as csv_file:
+  with open('passwords.csv', 'r') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     line_count = 1
     for row in csv_reader:
@@ -81,7 +80,7 @@ def search():
 
   acount = int(input('Seleccione la cuenta de la cual quiere al contraseña: '))
 
-  with open('/home/m4rs0r/Proyectos/Python/Passwords/.passwords.csv', 'r') as csv_file:
+  with open('passwords.csv', 'r') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')     
     line_count = 0
     
