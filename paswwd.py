@@ -10,8 +10,8 @@ from time import sleep
 def menu():
   print('1 --> Generate password')
   print('2 --> Search password')
-  print('3 --> Salir')
-  option = input('Opción: ')
+  print('3 --> Exit')
+  option = input('Option: ')
   if option == '1':
     generate()
 
@@ -78,7 +78,7 @@ def search():
         line_count += 1
     csv_file.close()
 
-  acount = int(input('Seleccione la cuenta de la cual quiere al contraseña: '))
+  acount = int(input('Option: '))
 
   with open('passwords.csv', 'r') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')     
